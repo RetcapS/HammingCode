@@ -1,60 +1,57 @@
-# HammingCode
+# Hamming Code Simülatörü
 
-Genel Bakış
-Bu uygulama, Hamming Kodlama (Hamming Code) yöntemini kullanarak tek bitlik hataları algılayan ve kullanıcıya gösteren bir simülatördür. Java Swing ile geliştirilmiş olan bu arayüzde, kullanıcı veriyi girer, uygulama kontrol bitlerini hesaplar ve hataları tespit etmeyi sağlar.
+Java Swing kullanılarak geliştirilmiş bu uygulama, Hamming Kodlama (SEC - Single Error Correction) yöntemini görsel ve etkileşimli bir şekilde simüle eder.
 
-Özellikler
-Kullanıcıdan 8, 16 veya 32 bit uzunluğunda ikili veri alır.
+##  Amaç
 
-Girilen veriye uygun olarak Hamming kontrol bitlerini hesaplar.
+Bu uygulamanın amacı, kullanıcıya Hamming kodlamanın nasıl çalıştığını deneyimleyerek öğretmek ve tek bitlik hataları nasıl tespit ettiğini göstermektir.
 
-Tüm bitleri (veri + kontrol bitleri) ekranda kutucuklar olarak gösterir.
+##  Özellikler
 
-Her bir bit tıklanarak değiştirilebilir.
+- 8, 16 veya 32 bit uzunluğunda veri girişi
+- Kontrol bitlerinin otomatik hesaplanması
+- Tüm bitlerin arayüzde kutucuklar şeklinde gösterimi
+- Her bitin kullanıcı tarafından tıklanarak değiştirilmesi
+- Hatalı bitin tespiti ve kullanıcıya gösterilmesi
 
-Hata analizi yapılır ve hatalı bit pozisyonu ekranda gösterilir.
+##  Nasıl Çalışır?
 
-Bitlerin renkleri ile anlamları belirtilir:
+1. Uygulama başlatıldığında kullanıcıdan **8, 16 veya 32 bitlik** veri seçmesi istenir.
+2. Kullanıcı belirtilen uzunlukta **ikili bir veri** girer (örnek: `10101010`).
+3. Uygulama Hamming kodunu oluşturur ve **kontrol bitlerini** hesaplayarak dizide uygun yerlere ekler.
+4. Tüm bitler (veri + kontrol) arayüzde gösterilir.
+5. Kullanıcı herhangi bir bit kutusuna tıklayarak bitin değerini tersine çevirebilir.
+6. Değişiklik yapıldığında sistem kontrol bitlerini yeniden hesaplayarak **hatalı bitin pozisyonunu** gösterir.
 
-Veri bitleri: Açık yeşil
+## Arayüz Bileşenleri
 
-Kontrol bitleri: Gri
+- 🔹 **Bit Kutuları:**
+  - Veri bitleri: Açık yeşil (`#90EE90`)
+  - Kontrol bitleri: Gri (`#808080`)
+  - Değiştirilen bitler: Kırmızımsı (`#FF6347`)
+  
+- 🧾 **Üst Panel:** Girilen veri ve hesaplanan kontrol bitlerini gösterir.
+- 💬 **Alt Panel:** Hatalı bit olup olmadığına dair mesaj verir.
 
-Değiştirilen bitler: Kırmızı
+##  Örnek Kullanım
 
-Kullanım Adımları
-Uygulama başlatıldığında kullanıcıdan bit sayısı seçmesi istenir (8, 16 veya 32).
+1. Bit sayısı olarak `8` seçildi.
+2. Veri olarak `11010101` girildi.
+3. Hamming kodu hesaplandı ve ekrana yansıtıldı.
+4. Kullanıcı 5. bit’e tıkladı ve değeri değiştirildi.
+5. Ekranda şu mesaj göründü:
 
-Ardından bu uzunlukta bir ikili veri girişi yapılır (örnek: 10101010).
+```
+Hata tespit edildi! Hatalı bit: 5
+```
+##  Teknolojiler
 
-Uygulama, girilen veriye kontrol bitlerini ekleyerek Hamming kodlamasını oluşturur.
+- **Java**
+- **Swing GUI**
+- **Hamming Code (SEC) algoritması**
 
-Her bir bit bir kutucukla temsil edilir. Kutucuklara tıklanarak bitler değiştirilebilir.
+##  Notlar
 
-Bit değiştirildiğinde, uygulama hatayı tespit eder ve kullanıcıya hangi bitin hatalı olduğunu bildirir.
-
-Arayüz Öğeleri
-Üst Bilgi: Girilen veri ve hesaplanan kontrol bitleri gösterilir.
-
-Orta Panel: Bit kutucukları yatay olarak sıralanır.
-
-Alt Bilgi: Hata mesajları burada görüntülenir.
-
-Örnek Senaryo
-Kullanıcı 8 bit veri girdi: 10101010
-
-Uygulama gerekli kontrol bitlerini ekledi ve bitleri ekranda gösterdi.
-
-Kullanıcı 5. bit'e tıkladı ve değeri değiştirdi.
-
-Alt panelde şu mesaj göründü: Hata tespit edildi! Hatalı bit: 5
-
-Amaç
-Bu simülatörün amacı, Hamming Kodlama mantığını görsel ve etkileşimli şekilde göstermek ve kullanıcıya bu algoritmanın nasıl çalıştığını deneyimleyerek öğretmektir.
-
-Geliştirici Notları
-Uygulama yalnızca tek bit hatalarını tespit eder (SEC - Single Error Correction).
-
-Kontrol bitleri dinamik olarak hesaplanır (2^k ≥ m + k + 1 formülüne göre).
-
-GUI bileşenleri Java Swing ile oluşturulmuştur.
+- Uygulama yalnızca **tek bitlik hataları** tespit eder.
+- Giriş verisi yalnızca `0` ve `1` içermelidir.
+- Kontrol bitleri 2'nin kuvveti olan konumlara yerleştirilir (1, 2, 4, 8, ...).
