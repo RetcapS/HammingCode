@@ -25,13 +25,13 @@ Bu uygulamanın amacı, kullanıcıya Hamming kodlamanın nasıl çalıştığı
 
 ## Arayüz Bileşenleri
 
-- 🔹 **Bit Kutuları:**
+-  **Bit Kutuları:**
   - Veri bitleri: Açık yeşil (`#90EE90`)
   - Kontrol bitleri: Gri (`#808080`)
   - Değiştirilen bitler: Kırmızımsı (`#FF6347`)
   
-- 🧾 **Üst Panel:** Girilen veri ve hesaplanan kontrol bitlerini gösterir.
-- 💬 **Alt Panel:** Hatalı bit olup olmadığına dair mesaj verir.
+-  **Üst Panel:** Girilen veri ve hesaplanan kontrol bitlerini gösterir.
+-  **Alt Panel:** Hatalı bit olup olmadığına dair mesaj verir.
 
 ##  Örnek Kullanım
 
